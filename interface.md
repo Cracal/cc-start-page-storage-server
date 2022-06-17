@@ -7,55 +7,56 @@
   - 默认的请求方法：
     | 方法                      | 行为         |
     | ------------------------- | ------------ |
-    | *$\color{green}{GET}$*    | 获取数据     |
-    | *$\color{green}{POST}$*   | 保存数据     |
-    | *$\color{green}{DELETE}$* | 删除数据     |
-    | *$\color{green}{PUT}$*    | 获取认证信息 |
-  - 可以输入多个URL，使用英文“**$\color{green}{,}$**”隔开
+    | *<font color=green>GET</font>*    | 获取数据     |
+    | *<font color=green>POST</font>*   | 保存数据     |
+    | *<font color=green>DELETE</font>* | 删除数据     |
+    | *<font color=green>PUT</font>*    | 获取认证信息 |
+  - 可以输入多个URL，使用英文“**<font color=green>,</font>**”隔开
   - 可以指定URL的用途：
-    - 各用途标识之间除了在标识有值时需要在值的后面用英文“<font color=green>-</font>”表示结束外，其他情况不需要分隔符；和URL的分隔符使用英文“**$\color{green}{::}$**”
+    - 各用途标识之间除了在标识有值时需要在值的后面用英文“<font color=green>-</font>”表示结束外，其他情况不需要分隔符；和URL的分隔符使用英文“**<font color=green>::</font>**”
     - 用途类型表：
 
         | 类型标识                                                                                          | 含义                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
         | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-        | a                                                                                                 | authorization 表示URL用于获取认证信息,默认的请求方法是$\color{orange}{PUT}。$                                                                                                                                                                                                                                                                                                                                                                                                                   |
-        | u<font color=green>[(<\|>\|=\|<=\|>=n<font color=orangered>(Bytes\|KB\|MB\|GB)</font>)]</font>    | u:upload 表示URL用于数据的上传。默认的请求方法是$\color{orange}{POST}$<br><、>、=、... 比较符。<br>n:size 数值，表示存储数据大小。<br>Bytes、KB、MB、GB size单位，不区分大小写<br>例如：<br>u<=10KB::url 表示url存储数据小于或等于10KB的数据。                                                                                                                                                                                                                                                  |
-        | g                                                                                                 | get 表示URL用于获取数据。默认的请求方法是$\color{orange}{GET}。$                                                                                                                                                                                                                                                                                                                                                                                                                                |
+        | a                                                                                                 | authorization 表示URL用于获取认证信息,默认的请求方法是<font color=orange>PUT</font>。                                                                                                                                                                                                                                                                                                                                                                                                                   |
+        | u<font color=green>[(<\|>\|=\|<=\|>=n<font color=orangered>(Bytes\|KB\|MB\|GB)</font>)]</font>    | u:upload 表示URL用于数据的上传。默认的请求方法是<font color=orange>POST</font><br><、>、=、... 比较符。<br>n:size 数值，表示存储数据大小。<br>Bytes、KB、MB、GB size单位，不区分大小写<br>例如：<br>u<=10KB::url 表示url存储数据小于或等于10KB的数据。                                                                                                                                                                                                                                                  |
+        | g                                                                                                 | get 表示URL用于获取数据。默认的请求方法是<font color=orange>GET</font>。                                                                                                                                                                                                                                                                                                                                                                                                                                |
         | G                                                                                                 | 单独指定get 'all-keys'，用于获取存储是所有数据的键名。不指定G时标识了g的URL应该完成该功能，否则切换存储方式时会丢失数据。                                                                                                                                                                                                                                                                                                                                                                       |
-        | d                                                                                                 | delete 标识URL用于删除数据。默认的请求方法是$\color{orange}{DELETE}。$                                                                                                                                                                                                                                                                                                                                                                                                                          |
+        | d                                                                                                 | delete 标识URL用于删除数据。默认的请求方法是<font color=orange>DELETE</font>。                                                                                                                                                                                                                                                                                                                                                                                                                          |
         | D                                                                                                 | 单独指定delete 'all-keys'，用于删除存储的所有数据。不指定时标识了d的URL应该完成该功能，否则无法删除全部数据。                                                                                                                                                                                                                                                                                                                                                                                   |
         | m=<font color=orange>(GET\|POST\|DELETE\|PUT)</font>                                              | method 标识URL请求时使用的方法，为了不与标识关键字冲突，建议只使用大写。<br><font color=green>规定m要紧紧跟在a、u、g或d后面，跟谁就为谁设置请求方法。</font>                                                                                                                                                                                                                                                                                                                                    |
         | p=(j\|x)                                                                                          | parameter type 请求参数类型<br>j:json<br>x或者不指定*p*:x-www-form-urlencoded。<br><font color=pink>规定同m</font>                                                                                                                                                                                                                                                                                                                                                                              |
-        | V=(n\|h\|p\|hp)\[authName\]                                                                       | verify 指定URL的$\color{pink}{认证方式}$（请求头或请求参数）和携带认证的$\color{pink}{参数名}$。<br>n:无需认证。<br>h:header 表明认证信息只在请求头中。<br>p:parameter 表明认证信息只在请求参数中。<br>hp 表明认证信息同时存在于请求头和请求参数中。<br>authName 可选，不填写表示使用默认的名称“Authorization”<br><font color=pink>规定同m</font>                                                                                                                                               |
+        | V=(n\|h\|p\|hp)\[authName\]                                                                       | verify 指定URL的<font color=pink>认证方式</font>（请求头或请求参数）和携带认证的<font color=pink>参数名</font>。<br>n:无需认证。<br>h:header 表明认证信息只在请求头中。<br>p:parameter 表明认证信息只在请求参数中。<br>hp 表明认证信息同时存在于请求头和请求参数中。<br>authName 可选，不填写表示使用默认的名称“Authorization”<br><font color=pink>规定同m</font>                                                                                                                                               |
         | k=keyName                                                                                         | 更改默认参数名key为keyName<br><font color=pink>规定同m</font>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
         | v=valueName                                                                                       | 更改默认参数名value为valueName<br><font color=pink>规定同m</font><br>只对上传数据生效。                                                                                                                                                                                                                                                                                                                                                                                                         |
-        | r=<font color=yellow>(stringData\|{code=[codeName.successCode].msg=msgName.data=dataName})</font> | response 指定URL响应参数样式。<br>当$\color{yellow}{r=stringData}$时，表明对应的URL请求响应返回的是一个字符串<br>当$\color{yellow}{r=\{...\}}$时，表明对应的URL请求响应返回的是json数据，其中必须指定的是$\color{brown}{code字段}$，其次是$\color{pink}{data字段}$<br>$\color{pink}{codeName}$指明code字段名称<br>$\color{pink}{successCode}$指明请求成功返回的code值<br>$\color{pink}{msgName}$指定提示消息字段名称$\color{pink}{dataName}$指定data字段名称<br><font color=pink>规定同m</font> |
+        | r=<font color=yellow>(stringData\|{code=[codeName.successCode].msg=msgName.data=dataName})</font> | response 指定URL响应参数样式。<br>当<font color=yellow>r=stringData</font>时，表明对应的URL请求响应返回的是一个字符串<br>当<font color=yellow>r=\{...\}</font>时，表明对应的URL请求响应返回的是json数据，其中必须指定的是<font color=brown>code字段</font>，其次是<font color=pink>data字段</font><br><font color=pink>codeName</font>指明code字段名称<br><font color=pink>successCode</font>指明请求成功返回的code值<br><font color=pink>msgName</font>指定提示消息字段名称<font color=pink>dataName</font>指定data字段名称<br><font color=pink>规定同m</font> |
 
     - 标识之间的关系:
       - 所有标识之间都相容
-      - 如果只使用一个URL来标明a、u、g、d的功能，那么如果其中一个标识指定了m并且和其他的标识冲突（即url一样并且请求方法也一样了），那么冲突的标识也需要$\color{orangered}{指定m}$或者$\color{orangered}{使用另外的URL}$来消除冲突。a、u、g、d组合的子集同理
+      - 如果只使用一个URL来标明a、u、g、d的功能，那么如果其中一个标识指定了m并且和其他的标识冲突（即url一样并且请求方法也一样了），那么冲突的标识也需要<font color=orangered>指定m</font>或者<font color=orangered>使用另外的URL</font>来消除冲突。a、u、g、d组合的子集同理
       - V、k、v对a没有意义
     - URLs的输入样例：
       - `augd::https://cracal.cn/api/do-all` <font size=1 color=#8e8e8e>表明该URL用于获取认证信息、上传存储数据、获取存储数据、删除存储数据。服务器根据不同的<font size=2 color=yellow>*请求方法*</font>来区分不同的功能</font>
       - `https://cracal.cn/api/do-all` <font size=1 color=#8e8e8e>当只有一个URL时，可以省略标识符。这种情况等价于上面的情况</font>
       - `am=POST-um=PUT-gd::https://cracal.cn/api/do-all` <font size=1 color=#8e8e8e>表明该URL用于获取认证信息、上传存储数据、获取存储数据、删除存储数据。服务器根据不同的<font size=2 color=yellow>*请求方法*</font>来区分不同的功能。<font color=red>在此URL中，希望在<font color=green>$\underline{获取认证信息}$</font>时使用POST,而<font color=green>$\underline{上传存储数据}$</font>默认的请求方法就是POST，两者冲突，所以需要为u也指定m,g和d因为没有冲突，所有不需要指定m</font></font>
-      - `a::https://cracal.cn/api/auth`**$\color{red}{,}$** `ugd::https://cracal.cn/api/data` <font size=1 color=#8e8e8e>指定$\color{green}{a}$的URL用于获取操作存储数据时所需的认证信息，指定$\color{green}{u,g,d}$的URL用于操作存储数据的上传、获取和删除</font>
-      - `am=POST::https://cracal.cn/api/auth`**$\color{red}{,}$** `ugd::https://cracal.cn/api/data` <font size=1 color=#8e8e8e>指定$\color{green}{a}$的URL用于获取操作存储数据时所需的认证信息，并且标明了该URL使用$\color{orange}{POST}$方法；指定$\color{green}{u,g,d}$的URL用于操作存储数据的上传、获取和删除。虽然a和u都使用POST，但是两者使用不同的URL，不会冲突，因此不需要额外给u指定POST之外的请求方法。<font color=red>注意：使用$\color{orange}{","}$隔开的两个URL被认为是不同的URL，因此“`am=POST::https://cracal.cn/api/save, um=POSTgd::https:://cracal.cn/api/save`”在程序验证上$\color{orange}{不认为相同}$，但是实际上a和u是$\color{yellow}{相同的}$，如果后端服务器没有对两者做额外处理是会出错的，因此这类错误需要用户手动排除</font></font>
-      - `ar={code=[myCode.0].data=myData.msg}::https://cracal.cn/api/all` <font size=1 color=#8e8e8e>该URL用于获取操作存储数据时所需的认证信息。并且请求返回的json样式如下：</font>
+      - `a::https://cracal.cn/api/auth`**<font color=red>,</font>** `ugd::https://cracal.cn/api/data` <font size=1 color=#8e8e8e>指定<font color=green>a</font>的URL用于获取操作存储数据时所需的认证信息，指定<font color=green>u,g,d</font>的URL用于操作存储数据的上传、获取和删除</font>
+      - `am=POST::https://cracal.cn/api/auth`**<font color=red>,</font>** `ugd::https://cracal.cn/api/data` <font size=1 color=#8e8e8e>指定<font color=green>a</font>的URL用于获取操作存储数据时所需的认证信息，并且标明了该URL使用<font color=orange>POST</font>方法；指定<font color=green>u,g,d</font>的URL用于操作存储数据的上传、获取和删除。虽然a和u都使用POST，但是两者使用不同的URL，不会冲突，因此不需要额外给u指定POST之外的请求方法。<font color=red>注意：使用<font color=orange>","</font>隔开的两个URL被认为是不同的URL，因此“`am=POST::https://cracal.cn/api/save, um=POSTgd::https:://cracal.cn/api/save`”在程序验证上<font color=orange>不认为相同</font>，但是实际上a和u是<font color=yellow>相同的</font>，如果后端服务器没有对两者做额外处理是会出错的，因此这类错误需要用户手动排除</font></font>
+      - `ar={code=[myCode.0].data=myData.msg=myMsg}::https://cracal.cn/api/all` <font size=1 color=#8e8e8e>该URL用于获取操作存储数据时所需的认证信息。并且请求返回的json样式如下：</font>
 
         ```javascript
         {
-            myCode: 数字,
-            myData: 数据
+            myCode: 状态,
+            myData: 数据,
+            myMsg:  消息
         }
         // myCode如果等于0被认为请求成功
         ```
 
 - 认证:
-  - 可以填写多个凭证，用英文“**$\color{green}{,}$**”隔开
+  - 可以填写多个凭证，用英文“**<font color=green>,</font>**”隔开
   - 不填写标识时系统根据输入顺序确认用途：
-    - 只有一个输入时，被认为该认证信息永久生效，在请求数据时请求头$\color{orange}{Authorization}$将会携带该认证信息
-    - 有两个输入时，第一个数据被认为是$\color{orange}{username}$，第二个数据被认为是$\color{orange}{password}$。这两个数据不直接应用在请求数据中，而是会被当成APIs中标识a的URL的请求参数，参数类型默认是<font color=yellow>x-www-form-urlencoded</font>；当标识a的URL返回时会携带一个token，请求数据的URL在请求时会使用该token(默认携带在请求头Authorization中)
+    - 只有一个输入时，被认为该认证信息永久生效，在请求数据时请求头<font color=orange>Authorization</font>将会携带该认证信息
+    - 有两个输入时，第一个数据被认为是<font color=orange>username</font>，第二个数据被认为是<font color=orange>password</font>。这两个数据不直接应用在请求数据中，而是会被当成APIs中标识a的URL的请求参数，参数类型默认是<font color=yellow>x-www-form-urlencoded</font>；当标识a的URL返回时会携带一个token，请求数据的URL在请求时会使用该token(默认携带在请求头Authorization中)
     - 如果需要输入3个及以上的参数，必须使用标识符
   - 使用标识:
     - 标识列表:
@@ -65,8 +66,8 @@
         | k=keyName | key 指定参数名称。<br>keyName可以是你需要的任何合法名称，根据你后端服务器的需要确定。 |
 
     - 认证使用样例：
-      - `xxxxxxxxxxxxxxxxxxxx` 只有一个输入，表示这是一个长期有效的认证,如果APIs中$\color{brown}{没有指定a}$，那么它将会被请求数据（上传、获取和删除）接口在请求时$\color{pink}{当做认证凭证一起提交给后端服务器}$；如果APIs中$\color{yellow}{指定了a}$，那么它$\color{pink}{只会被请求认证的接口使用}$，而请求数据的接口使用的是请求认证的接口返回的token。
-      - `xxx, xxx` 两个输入，第一个被认为是$\color{orangered}{username}$,被参数名username携带；第二个被认为是$\color{orangered}{password}$，被参数名password携带。如果APIs中$\color{brown}{没有指定a}$，这些输入不会被分割成username和password，而是一起被当成一个认证凭证，这个错误要手动排除；如果APIs中$\color{yellow}{指定了a}$，那么这些输入会被当成请求认证接口的请求参数提交给后端服务器。
+      - `xxxxxxxxxxxxxxxxxxxx` 只有一个输入，表示这是一个长期有效的认证,如果APIs中<font color=brown>没有指定a</font>，那么它将会被请求数据（上传、获取和删除）接口在请求时<font color=pink>当做认证凭证一起提交给后端服务器</font>；如果APIs中<font color=yellow>指定了a</font>，那么它<font color=pink>只会被请求认证的接口使用</font>，而请求数据的接口使用的是请求认证的接口返回的token。
+      - `xxx, xxx` 两个输入，第一个被认为是<font color=orangered>username</font>,被参数名username携带；第二个被认为是<font color=orangered>password</font>，被参数名password携带。如果APIs中<font color=brown>没有指定a</font>，这些输入不会被分割成username和password，而是一起被当成一个认证凭证，这个错误要手动排除；如果APIs中<font color=yellow>指定了a</font>，那么这些输入会被当成请求认证接口的请求参数提交给后端服务器。
       - `k=id::xxx, k=pass::xxx` 同上，只是参数名username被改成id，参数名password被改成pass。
       - `k=id::xxx, k=pass::xxx, k=extraData::xxx` 同上，但在请求时会额外增加一个名为extraData的参数
 
